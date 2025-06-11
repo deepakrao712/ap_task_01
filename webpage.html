@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Responsive Webpage</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: white;
+      min-height: 100vh;
+    }
+
+    header {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 20px 0;
+      text-align: center;
+      position: fixed;
+      width: 100%;
+      z-index: 1000; 
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      padding: 8px 16px;
+      border-radius: 5px;
+      transition: background 0.5s;
+    }
+
+    nav ul li a:hover {
+      background: rgba(10, 10, 10, 0.2);
+    }
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding:100px 20px 150px;
+      min-height: 100vh;
+      background: rgba(0, 0, 0, 0.5);
+      text-align: center;
+    }
+
+    .content h1 {
+      font-size: 48px;
+      color: white;
+      margin-bottom: 30px;
+    }
+
+    .main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .internship-card {
+      max-width: 600px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 2px solid rgba(255, 255, 255, 0.4);
+      border-radius: 15px;
+      backdrop-filter: blur(8px);
+      padding: 20px;
+      color: white;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      text-align: center;
+    }
+
+    .internship-card img {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    .internship-card h2 {
+      font-size: 26px;
+      margin-bottom: 10px;
+    }
+
+    .internship-card p {
+      font-size: 16px;
+      margin-bottom: 15px;
+    }
+
+    .internship-card a {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #00bfff;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background 0.3s ease;
+      cursor: pointer;
+    }
+
+    .internship-card a:hover {
+      background-color: #009acd;
+    }
+
+    form {
+      max-width: 600px;
+      margin-top: 20px;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 15px;
+      border: 2px solid rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(8px);
+      display: none;
+    }
+
+    form h2 {
+      margin-bottom: 15px;
+    }
+
+    form input, form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      border: none;
+      font-size: 16px;
+    }
+
+    form button {
+      padding: 10px 20px;
+      background-color: #00bfff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    form button:hover {
+      background-color: #009acd;
+    }
+
+    #success-message {
+      display: none;
+      background: rgba(0, 128, 0, 0.7);
+      padding: 15px 25px;
+      margin-top: 20px;
+      border-radius: 10px;
+      color: #fff;
+      font-size: 18px;
+    }
+
+    @media (max-width: 768px) {
+      .content h1 {
+        font-size: 22px;
+      }
+
+      nav ul {
+        flex-direction: row;
+        gap: 15px;
+      }
+
+      .internship-card,
+      form {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Vlog</a></li>
+        <li><a href="#">Service</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="content">
+    <h1>Welcome to Our Responsive Page</h1>
+    <div class="main">
+      <div class="internship-card">
+        <img src="https://i.pinimg.com/originals/ba/0e/b8/ba0eb82dbe74fb21925083c2ea7475b4.jpg" alt="Internship">
+        <h2>Web Development Internship</h2>
+        <p>
+          Looking to start your journey in web development? Gain hands-on experience in HTML, CSS, JavaScript, React, and more.
+        </p>
+        <a onclick="showForm()">Apply Now</a>
+      </div>
+
+      <form id="internship-form">
+        <h2>Internship Application Form</h2>
+        <input type="text" placeholder="Full Name" required />
+        <input type="email" placeholder="Email Address" required />
+        <input type="text" placeholder="Your Skills (HTML, CSS, JS...)" required />
+        <textarea rows="4" placeholder="Why do you want this internship?" required></textarea>
+        <button type="submit">Submit Application</button>
+      </form>
+
+      <div id="success-message"> Your application was submitted successfully!</div>
+    </div>
+  </section>
+
+  <script>
+    function showForm() {
+      const form = document.getElementById("internship-form");
+      const message = document.getElementById("success-message");
+      form.style.display = "block";
+      message.style.display = "none";
+
+      setTimeout(() => {
+        const headerOffset = 100; 
+        const elementPosition = form.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth"
+        });
+      }, 100);
+    }
+
+    const form = document.getElementById("internship-form");
+    const message = document.getElementById("success-message");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      form.style.display = "none";
+      message.style.display = "block";
+      message.scrollIntoView({ behavior: "smooth" });
+    });
+  </script>
+
+</body>
+</html>
